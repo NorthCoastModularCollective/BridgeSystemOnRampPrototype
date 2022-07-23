@@ -1,4 +1,4 @@
-#N canvas 2263 39 2242 1377 12;
+#N canvas 1836 6 1708 856 12;
 #X obj 347 161 hsl 128 64 0 127 0 0 \$0-rate \$0-rate-knob rate -2
 -8 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 1186 267 inlet;
@@ -88,8 +88,8 @@
 #X text 301 180 slow;
 #X text 477 183 fast;
 #X obj 955 839 outlet~;
-#X obj 1017 221 bng 15 250 50 0 empty \$0-trig-btn trig\ out 17 7 0
-10 #ff0400 #000000 #000000;
+#X obj 1017 221 bng 15 250 50 0 empty \$0-trig-btn trig\\\ out 17 7
+0 10 #ff0400 #000000 #000000;
 #X obj 954 808 line~;
 #X obj 993 746 del 5;
 #X msg 993 770 0 0;
@@ -103,13 +103,13 @@
 #X obj 954 621 expr ($f1<0.0);
 #X obj 999 705 s \$0-trig-btn;
 #X obj 545 160 hsl 128 64 0 127 0 0 \$0-output-amount \$0-output-amount-knob
-output\ amount -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
+output\\\ amount -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 478 462 r \$0-output-amount;
 #X obj 337 644 *~;
 #X msg 478 537 \$1 20;
 #X obj 478 562 line~;
 #X obj 867 161 hsl 128 64 0 127 0 0 \$0-clock-rate \$0-clock-rate-knob
-clock\ rate -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
+clock\\\ rate -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
 #N canvas 2263 39 1906 953 speed_control_clock~ 0;
 #X obj 322 514 line~;
 #X msg 322 488 \$1 30;
@@ -128,13 +128,10 @@ clock\ rate -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
 #X connect 7 0 1 0;
 #X restore 955 436 pd speed_control_clock~;
 #X obj 955 461 phasor~;
-#X obj 287 578 expr~ ($v1 + 1)/2;
-#X obj 214 680 snapshot~;
-#X obj 203 541 bang~;
-#X floatatom 214 705 5 0 0 0 - - - 0;
+#X obj 267 588 expr~ ($v1 + 1)/2;
 #X obj 478 487 / 127;
-#X obj 697 133 vradio 16 1 0 6 lfo-mod-dest empty mod\ dest 0 -8 0
-10 #fcfcfc #000000 #000000 0;
+#X obj 697 133 vradio 16 1 0 6 lfo-mod-dest empty mod\\\ dest 0 -8
+0 10 #fcfcfc #000000 #000000 0;
 #X text 713 129 waveform;
 #X text 713 146 speed;
 #X text 713 161 srr;
@@ -163,14 +160,11 @@ clock\ rate -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
 #X connect 25 0 24 0;
 #X connect 26 0 21 0;
 #X connect 27 0 25 0;
-#X connect 30 0 41 0;
+#X connect 30 0 38 0;
 #X connect 31 0 3 0;
-#X connect 31 0 38 0;
 #X connect 32 0 33 0;
 #X connect 33 0 31 1;
 #X connect 35 0 36 0;
 #X connect 36 0 26 0;
-#X connect 38 0 40 0;
-#X connect 39 0 38 0;
-#X connect 41 0 32 0;
+#X connect 38 0 32 0;
 #X coords 0 -1 1 1 1025 150 1 100 100;

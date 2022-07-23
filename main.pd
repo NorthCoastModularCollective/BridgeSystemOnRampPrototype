@@ -1,4 +1,4 @@
-#N canvas 2263 39 1906 953 12;
+#N canvas 2388 0 1906 953 12;
 #X obj 552 441 wave;
 #X obj 552 852 note;
 #X obj 1168 441 envelope;

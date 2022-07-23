@@ -1,4 +1,4 @@
-#N canvas 7 39 2242 1377 12;
+#N canvas 7 39 1920 976 12;
 #X obj 545 128 inlet~;
 #X text 521 89 srr;
 #X obj 516 220 line~;
@@ -8,18 +8,20 @@
 #X obj 665 237 samplerate~;
 #X obj 666 212 r pd-dsp-started;
 #X obj 665 261 sig~;
-#N canvas 0 0 2242 1377 srr~ 0;
+#N canvas 2192 18 1708 856 srr~ 1;
 #X obj 199 148 samphold~;
 #X obj 259 115 phasor~;
 #X obj 213 26 inlet~;
 #X obj 276 33 inlet~;
-#X obj 199 172 outlet~;
+#X obj 199 221 outlet~;
 #X obj 339 91 block~ 64 1 2;
-#X connect 0 0 4 0;
+#X obj 198 187 downsampling-filter;
+#X connect 0 0 6 0;
 #X connect 1 0 0 1;
 #X connect 2 0 0 0;
 #X connect 3 0 1 0;
-#X restore 415 404 pd srr~;
+#X connect 6 0 4 0;
+#X restore 468 347 pd srr~;
 #X obj 515 273 clip~ 0 1;
 #X obj 456 154 / 127;
 #X obj 665 285 -~ 8;
@@ -27,7 +29,7 @@
 -8 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 129 196 hsl 128 64 0 127 0 0 \$0-srr \$0-srr-knob sample\\\ rate\\\ reduce
 -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
-#X obj 380 331 inlet~;
+#X obj 442 317 inlet~;
 #X obj 395 457 outlet~;
 #X obj 867 113 inlet;
 #X obj 513 320 expr~ (1-$v1)*$v2 + 16;
