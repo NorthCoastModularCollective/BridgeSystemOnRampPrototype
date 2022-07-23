@@ -1,4 +1,4 @@
-#N canvas -20 24 1920 976 12;
+#N canvas -20 24 2242 1377 12;
 #X obj 387 398 vline~;
 #X msg 387 371 1 \$1 \, 0 \$2 \$1;
 #X obj 347 498 outlet~;
@@ -38,6 +38,8 @@
 #X obj 699 257 expr $f1*3000 + 5;
 #X obj 880 165 clip~ 0 1;
 #X obj 645 168 clip~ 0 1;
+#X obj 558 564 loadbang;
+#X msg 558 589 10;
 #X connect 0 0 13 1;
 #X connect 1 0 0 0;
 #X connect 3 0 5 0;
@@ -72,4 +74,6 @@
 #X connect 33 0 11 1;
 #X connect 34 0 32 0;
 #X connect 35 0 31 0;
+#X connect 36 0 37 0;
+#X connect 37 0 22 0;
 #X coords 0 -1 1 1 200 400 1 100 100;

@@ -1,4 +1,4 @@
-#N canvas 1836 6 1708 856 12;
+#N canvas 1836 6 2242 1377 12;
 #X obj 347 161 hsl 128 64 0 127 0 0 \$0-rate \$0-rate-knob rate -2
 -8 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 1186 267 inlet;
@@ -138,6 +138,10 @@ clock\\\ rate -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
 #X text 713 178 cutoff;
 #X text 713 194 attack;
 #X text 713 208 decay;
+#X obj 1059 9 loadbang;
+#X msg 1059 34 10;
+#X obj 365 18 loadbang;
+#X msg 365 43 10;
 #X connect 1 0 2 0;
 #X connect 4 0 6 0;
 #X connect 5 0 9 0;
@@ -167,4 +171,8 @@ clock\\\ rate -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
 #X connect 35 0 36 0;
 #X connect 36 0 26 0;
 #X connect 38 0 32 0;
+#X connect 46 0 47 0;
+#X connect 47 0 34 0;
+#X connect 48 0 49 0;
+#X connect 49 0 0 0;
 #X coords 0 -1 1 1 1025 150 1 100 100;
