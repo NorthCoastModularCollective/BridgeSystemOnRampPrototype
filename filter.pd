@@ -1,4 +1,4 @@
-#N canvas 7 39 1906 953 12;
+#N canvas 7 39 2242 1377 12;
 #X obj 149 171 hsl 128 64 0 127 0 0 \$0-cutoff \$0-cutoff-knob cutoff
 -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 735 159 inlet;
@@ -49,6 +49,8 @@
 #X obj 371 405 snapshot~;
 #X obj 334 303 bang~;
 #X floatatom 371 430 5 0 0 0 - - - 0;
+#X obj 368 81 loadbang;
+#X msg 368 106 60;
 #X connect 1 0 11 0;
 #X connect 2 0 4 0;
 #X connect 3 0 2 0;
@@ -61,4 +63,6 @@
 #X connect 10 0 6 0;
 #X connect 12 0 14 0;
 #X connect 13 0 12 0;
+#X connect 15 0 16 0;
+#X connect 16 0 0 0;
 #X coords 0 -1 1 1 200 400 1 100 100;
