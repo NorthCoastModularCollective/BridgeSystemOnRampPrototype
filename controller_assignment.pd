@@ -1,0 +1,14 @@
+#N canvas 7 39 2242 1377 12;
+#X obj 300 98 ctlin;
+#X obj 300 126 swap;
+#X obj 300 150 pack;
+#X obj 301 237 outlet;
+#X obj 300 211 list prepend \$1;
+#X obj 300 186 route \$2;
+#X connect 0 0 1 0;
+#X connect 0 1 1 1;
+#X connect 1 0 2 0;
+#X connect 1 1 2 1;
+#X connect 2 0 5 0;
+#X connect 4 0 3 0;
+#X connect 5 0 4 0;
