@@ -1,4 +1,4 @@
-#N canvas 3221 7 2242 1377 12;
+#N canvas 7 39 2242 1377 12;
 #X floatatom 583 102 5 0 0 0 - - - 0;
 #X obj 473 180 == 0;
 #X obj 473 231 line~;
@@ -31,7 +31,7 @@
 #X obj 486 415 outlet~;
 #X obj 496 445 outlet~;
 #X obj 506 475 outlet~;
-#X obj 583 77 r lfo-mod-dest;
+#X obj 583 77 r seq-mod-dest;
 #X connect 0 0 1 0;
 #X connect 0 0 24 0;
 #X connect 0 0 23 0;

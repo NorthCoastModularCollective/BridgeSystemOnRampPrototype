@@ -1,5 +1,5 @@
 #N canvas 7 39 2242 1377 12;
-#X obj 160 337 hsl 64 32 0 127 0 0 \$0-speed \$0-speed-knob speed -2
+#X obj 598 681 hsl 64 32 0 127 0 0 \$0-speed \$0-speed-knob speed -2
 -8 0 10 #fcfcfc #000000 #000000 0 0;
 #X obj 157 174 hsl 128 64 0 127 0 0 \$0-wave \$0-wave-knob waveform
 -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
@@ -99,8 +99,8 @@
 #X connect 14 0 6 0;
 #X restore 513 191 pd speed_control~;
 #X obj 674 190 knob-message-forwarder \$0;
-#X obj 595 603 loadbang;
-#X msg 595 628 60;
+#X obj 794 543 loadbang;
+#X msg 794 568 60;
 #X connect 2 0 8 0;
 #X connect 3 0 11 0;
 #X connect 4 0 14 0;
@@ -112,5 +112,4 @@
 #X connect 13 0 15 0;
 #X connect 14 0 12 1;
 #X connect 16 0 17 0;
-#X connect 17 0 0 0;
 #X coords 0 -1 1 1 200 400 1 100 100;

@@ -1,5 +1,5 @@
-#N canvas 2263 39 1906 953 12;
-#X obj 998 450 sig~;
+#N canvas 7 39 2242 1377 12;
+#X obj 917 465 sig~;
 #X obj 773 127 / 127;
 #X obj 773 151 > 0;
 #X obj 1069 566 line~;
@@ -23,7 +23,7 @@
 #X obj 1194 252 inlet~;
 #X obj 1231 309 snapshot~;
 #X obj 1248 280 bang~;
-#X obj 1278 351 change;
+#X obj 1228 362 change;
 #X obj 1234 563 sel 1;
 #X obj 1252 669 s \$0-trig-btn;
 #X obj 1221 514 change;
@@ -34,6 +34,9 @@
 #X obj 1148 454 bng 15 250 50 0 empty empty empty 17 7 0 10 #fcfcfc
 #000000 #000000;
 #X obj 1221 489 expr ($f1>0.0);
+#X obj 421 91 loadbang;
+#X msg 421 116 60;
+#X obj 421 141 s \$0-note-knob;
 #X connect 0 0 4 0;
 #X connect 1 0 2 0;
 #X connect 2 0 7 0;
@@ -59,4 +62,6 @@
 #X connect 26 1 1 0;
 #X connect 27 0 28 0;
 #X connect 30 0 25 0;
+#X connect 31 0 32 0;
+#X connect 32 0 33 0;
 #X coords 0 -1 1 1 200 400 1 100 100;

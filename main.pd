@@ -19,7 +19,10 @@
 #X obj 1722 357 controller_assignment decay 23;
 #X obj 1662 117 controller_assignment output-amount 32;
 #X obj 1662 87 controller_assignment clock-rate 33;
-#X obj 791 395 patchbay, f 13;
+#X obj 791 395 lfo-patchbay, f 13;
+#X obj 1048 388 clock-patchbay;
+#X obj 759 853 sequencer;
+#X obj 895 394 seq-patchbay, f 13;
 #X connect 0 0 5 0;
 #X connect 1 0 0 1;
 #X connect 1 1 2 1;
@@ -28,7 +31,7 @@
 #X connect 4 1 7 0;
 #X connect 5 0 3 0;
 #X connect 8 0 20 0;
-#X connect 8 1 1 0;
+#X connect 8 1 21 0;
 #X connect 9 0 8 1;
 #X connect 10 0 8 1;
 #X connect 11 0 0 2;
@@ -46,3 +49,13 @@
 #X connect 20 3 3 1;
 #X connect 20 4 2 2;
 #X connect 20 5 2 3;
+#X connect 21 1 1 0;
+#X connect 21 2 22 0;
+#X connect 22 0 23 0;
+#X connect 22 1 2 1;
+#X connect 23 0 0 0;
+#X connect 23 1 0 1;
+#X connect 23 2 5 1;
+#X connect 23 3 3 1;
+#X connect 23 4 2 2;
+#X connect 23 5 2 3;
