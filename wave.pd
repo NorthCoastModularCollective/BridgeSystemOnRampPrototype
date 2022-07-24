@@ -1,8 +1,6 @@
 #N canvas 7 39 2242 1377 12;
 #X obj 598 681 hsl 64 32 0 127 0 0 \$0-speed \$0-speed-knob speed -2
 -8 0 10 #fcfcfc #000000 #000000 0 0;
-#X obj 157 174 hsl 128 64 0 127 0 0 \$0-wave \$0-wave-knob waveform
--2 -8 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 436 198 r \$0-wave;
 #X obj 417 156 inlet~;
 #X obj 512 154 inlet~;
@@ -101,15 +99,19 @@
 #X obj 674 190 knob-message-forwarder \$0;
 #X obj 794 543 loadbang;
 #X msg 794 568 60;
-#X connect 2 0 8 0;
-#X connect 3 0 11 0;
-#X connect 4 0 14 0;
-#X connect 8 0 10 0;
-#X connect 9 0 11 1;
-#X connect 10 0 9 0;
-#X connect 11 0 12 0;
-#X connect 12 0 5 0;
-#X connect 13 0 15 0;
-#X connect 14 0 12 1;
-#X connect 16 0 17 0;
+#X obj 101 101 cnv 15 198 398 empty empty empty 20 12 0 14 #e3c6ff
+#404040 0;
+#X obj 144 204 hsl 128 64 0 127 0 0 \$0-wave \$0-wave-knob waveform
+-2 -8 0 10 #fcfcfc #000000 #000000 0 1;
+#X connect 1 0 7 0;
+#X connect 2 0 10 0;
+#X connect 3 0 13 0;
+#X connect 7 0 9 0;
+#X connect 8 0 10 1;
+#X connect 9 0 8 0;
+#X connect 10 0 11 0;
+#X connect 11 0 4 0;
+#X connect 12 0 14 0;
+#X connect 13 0 11 1;
+#X connect 15 0 16 0;
 #X coords 0 -1 1 1 200 400 1 100 100;

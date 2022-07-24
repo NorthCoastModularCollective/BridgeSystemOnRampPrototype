@@ -1,4 +1,4 @@
-#N canvas 7 39 1920 976 12;
+#N canvas 7 39 2242 1377 12;
 #X obj 545 128 inlet~;
 #X text 521 89 srr;
 #X obj 516 220 line~;
@@ -8,7 +8,7 @@
 #X obj 665 237 samplerate~;
 #X obj 666 212 r pd-dsp-started;
 #X obj 665 261 sig~;
-#N canvas 2192 18 1708 856 srr~ 1;
+#N canvas 2192 18 1708 856 srr~ 0;
 #X obj 199 148 samphold~;
 #X obj 259 115 phasor~;
 #X obj 213 26 inlet~;
@@ -27,13 +27,15 @@
 #X obj 665 285 -~ 8;
 #X obj 1147 63 hsl 128 15 0 127 0 0 \$0-type-knob \$0-type type -2
 -8 0 10 #fcfcfc #000000 #000000 0 1;
-#X obj 129 196 hsl 128 64 0 127 0 0 \$0-srr \$0-srr-knob sample\\\ rate\\\ reduce
--2 -8 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 442 317 inlet~;
 #X obj 395 457 outlet~;
 #X obj 867 113 inlet;
 #X obj 513 320 expr~ (1-$v1)*$v2 + 16;
 #X obj 867 163 knob-message-forwarder \$0;
+#X obj 101 101 cnv 15 198 398 empty empty empty 20 12 0 14 #c6feff
+#404040 0;
+#X obj 132 189 hsl 128 64 0 127 0 0 \$0-srr \$0-srr-knob sample\\\ rate\\\ reduce
+-2 -8 0 10 #fcfcfc #000000 #000000 0 1;
 #X connect 0 0 4 1;
 #X connect 2 0 4 0;
 #X connect 3 0 2 0;
@@ -42,11 +44,11 @@
 #X connect 6 0 8 0;
 #X connect 7 0 6 0;
 #X connect 8 0 12 0;
-#X connect 9 0 16 0;
-#X connect 10 0 18 0;
+#X connect 9 0 15 0;
+#X connect 10 0 17 0;
 #X connect 11 0 3 0;
-#X connect 12 0 18 1;
-#X connect 15 0 9 0;
-#X connect 17 0 19 0;
-#X connect 18 0 9 1;
+#X connect 12 0 17 1;
+#X connect 14 0 9 0;
+#X connect 16 0 18 0;
+#X connect 17 0 9 1;
 #X coords 0 -1 1 1 200 400 1 100 100;
