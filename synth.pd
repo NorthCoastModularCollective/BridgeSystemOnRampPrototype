@@ -23,6 +23,31 @@
 #X obj 771 21 clock-patchbay;
 #X obj 323 737 sequencer;
 #X obj 473 14 seq-patchbay, f 13;
+#X text 113 124 Bridge system Mk. I;
+#X text 244 683 ---------------->;
+#X text 454 684 ---------------->;
+#X text 651 683 ---------------->;
+#X text 857 682 ---------------->;
+#X text -41 703 //;
+#X obj 395 677 cnv 32 32 32 empty empty ✹ 2 12 0 33 #bbbbbb #00faff
+0;
+#X text 125 337 oscillator;
+#X text 324 330 waveshaper;
+#X text 533 330 filter;
+#X text 737 328 envelope;
+#X text 940 326 output;
+#X text 332 744 sequencer;
+#X text 122 165 lfo;
+#X text 890 164 clock;
+#X text 128 746 midi in;
+#X obj 601 672 cnv 32 44 44 empty empty ☁ 0 0 0 44 #bbbbbb #00faff
+0;
+#X obj 805 672 cnv 32 44 44 empty empty ⌳ 0 20 0 33 #bbbbbb #00faff
+0;
+#X obj 190 672 cnv 44 44 44 empty empty ∿ 0 20 0 32 #bbbbbb #00faff
+0;
+#X obj 1080 671 cnv 32 44 44 empty empty 🔉 0 20 0 24 #bbbbbb #00faff
+0;
 #X connect 0 0 5 0;
 #X connect 1 0 0 1;
 #X connect 1 1 2 1;

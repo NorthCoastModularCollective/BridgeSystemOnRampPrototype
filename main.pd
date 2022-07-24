@@ -1,3 +1,2 @@
 #N canvas 7 39 2242 1377 12;
-#X obj 232 106 synth;
-#X text 259 128 Bridge system Mk. I;
+#X obj 134 70 synth;
