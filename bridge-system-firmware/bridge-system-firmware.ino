@@ -70,8 +70,8 @@
 #define ENVELOPE_DECAY_KNOB_PIN 40     // Envelope Decay
 #define OSCILLATOR_WAVE_KNOB_PIN 41    // Oscillator Wave Form
 #define NUM_SEQ_STEPS 4
-short seqFaderPins[NUM_SEQ_STEPS] = {SEQUENCER_LED1_PIN, SEQUENCER_LED2_PIN,
-                                     SEQUENCER_LED3_PIN, SEQUENCER_LED4_PIN};
+short seqFaderPins[NUM_SEQ_STEPS] = {SEQ_FADER1_PIN, SEQ_FADER2_PIN,
+                                     SEQ_FADER3_PIN, SEQ_FADER4_PIN};
 Bounce clockStartStopButton = Bounce();
 Bounce triggerButton = Bounce();
 
@@ -79,7 +79,7 @@ Bounce triggerButton = Bounce();
 const int midiChannel = 1;
 
 int faderValues[NUM_SEQ_STEPS] = {0, 0, 0, 0};
-int faderCCNumbers[NUM_SEQ_STEPS] = {44,45,46,47};
+int faderCCNumbers[NUM_SEQ_STEPS] = {44, 45, 46, 47};
 
 void setup() {
   clockStartStopButton.attach(CLOCK_START_STOP_BUTTON_PIN);
@@ -101,6 +101,7 @@ void readFaders() {
 void updateMidi() {
 
   for (int i = 0; i < NUM_SEQ_STEPS; i++) {
-    usbMIDI.sendControlChange(faderCCNumbers[i],map(faderValues[i], 0, 1023, 0, 127), midiChannel);
+    usbMIDI.sendControlChange(
+        faderCCNumbers[i], map(faderValues[i], 0, 1023, 0, 127), midiChannel);
   }
 }
