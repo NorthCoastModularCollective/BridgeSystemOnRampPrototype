@@ -70,7 +70,7 @@
 #define ENVELOPE_DECAY_KNOB_PIN 40     // Envelope Decay
 #define OSCILLATOR_WAVE_KNOB_PIN 41    // Oscillator Wave Form
 #define NUM_SEQ_STEPS 4
-#define NUM_KNOB_STEPS 8
+#define NUM_KNOB_PINS 8
 short seqFaderPins[NUM_SEQ_STEPS] = {SEQ_FADER1_PIN, SEQ_FADER2_PIN,
                                      SEQ_FADER3_PIN, SEQ_FADER4_PIN};
 short knobPins[NUM_KNOB_PINS] = {
@@ -85,8 +85,8 @@ const int midiChannel = 1;
 
 int faderValues[NUM_SEQ_STEPS] = {0, 0, 0, 0};
 int faderCCNumbers[NUM_SEQ_STEPS] = {44, 45, 46, 47};
-int knobValues[NUM_KNOB_PIN] = {0, 0, 0, 0, 0, 0, 0, 0};
-int knobCCNumbers[NUM_SEQ_STEPS] = {26, 27, 31, 32, 25, 28, 23, 30};
+int knobValues[NUM_KNOB_PINS] = {0, 0, 0, 0, 0, 0, 0, 0};
+int knobCCNumbers[NUM_KNOB_PINS] = {26, 27, 31, 32, 30, 28, 23, 25};
 
 void setup() {
   clockStartStopButton.attach(CLOCK_START_STOP_BUTTON_PIN);
