@@ -97,6 +97,8 @@ int knobCCNumbers[NUM_KNOB_PINS] = {26, 27, 31, 32, 30, 28, 23, 25};
 int buttonCCNumbers[NUM_BUTTONS] = {17,18};
 
 void setup() {
+  pinMode(CLOCK_START_STOP_BUTTON_PIN, INPUT_PULLUP);
+  pinMode(TRIGGER_BUTTON_PIN, INPUT_PULLUP);
   clockStartStopButton.attach(CLOCK_START_STOP_BUTTON_PIN);
   triggerButton.attach(TRIGGER_BUTTON_PIN);
 }
