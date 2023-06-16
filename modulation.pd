@@ -1,4 +1,4 @@
-#N canvas 7 39 2242 1377 12;
+#N canvas 4 24 1496 923 12;
 #X obj 1186 267 inlet;
 #X obj 1186 298 knob-message-forwarder \$0;
 #X obj 338 797 outlet~;
@@ -121,15 +121,15 @@
 #X obj 101 101 cnv 15 1024 148 empty empty empty 20 12 0 14 #feffc6
 #404040 0;
 #X obj 314 154 hsl 128 64 0 127 0 0 \$0-rate \$0-rate-knob rate -2
--8 0 10 #fcfcfc #000000 #000000 0 1;
+-8 0 10 #fcfcfc #000000 #000000 900 1;
 #X obj 137 153 hsl 128 64 0 127 0 0 \$0-wave \$0-wave-knob wave -2
--8 0 10 #fcfcfc #000000 #000000 0 1;
+-8 0 10 #fcfcfc #000000 #000000 9300 1;
 #X text 268 173 slow;
 #X text 441 176 fast;
 #X obj 482 153 hsl 128 64 0 127 0 0 \$0-output-amount \$0-output-amount-knob
-output\\\ amount -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
-#X obj 634 126 vradio 16 1 0 6 lfo-mod-dest empty mod\\\ dest 0 -8
-0 10 #fcfcfc #000000 #000000 0;
+output\ amount -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 634 126 vradio 16 1 0 6 lfo-mod-dest empty mod\ dest 0 -8 0
+10 #fcfcfc #000000 #000000 0;
 #X text 650 122 waveform;
 #X text 650 154 srr;
 #X text 650 171 cutoff;
@@ -142,17 +142,20 @@ output\\\ amount -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
 #X msg 668 55 0;
 #X obj 866 100 cnv 15 256 148 empty empty empty 20 12 0 14 #ffe3c6
 #404040 0;
-#X obj 1030 217 bng 15 250 50 0 empty \$0-trig-btn trig\\\ out 17 7
-0 10 #ff0400 #000000 #000000;
+#X obj 1030 217 bng 15 250 50 0 empty \$0-trig-btn trig\ out 17 7 0
+10 #ff0400 #000000 #000000;
 #X obj 880 157 hsl 128 64 0 127 0 0 \$0-clock-rate \$0-clock-rate-knob
-clock\\\ rate -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
+clock\ rate -2 -8 0 10 #fcfcfc #000000 #000000 1000 1;
 #X obj 1072 5 loadbang;
 #X msg 1072 30 10;
-#X obj 1031 136 vradio 16 1 0 3 clock-dest empty clock\\\ dest 0 -8
-0 10 #fcfcfc #000000 #000000 0;
+#X obj 1031 136 vradio 16 1 0 3 clock-dest empty clock\ dest 0 -8 0
+10 #fcfcfc #000000 #000000 0;
 #X text 1050 131 none;
 #X text 1050 148 trig;
 #X text 1050 167 sequencer;
+#X obj 1172 67 r \$0-clock-mode-knob;
+#X obj 1172 96 > 0;
+#X obj 1172 125 sel 1;
 #X connect 0 0 1 0;
 #X connect 3 0 5 0;
 #X connect 4 0 8 0;
@@ -188,4 +191,7 @@ clock\\\ rate -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
 #X connect 48 0 38 0;
 #X connect 52 0 53 0;
 #X connect 53 0 51 0;
+#X connect 58 0 59 0;
+#X connect 59 0 60 0;
+#X connect 60 0 54 0;
 #X coords 0 -1 1 1 1025 150 1 100 100;

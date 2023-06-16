@@ -1,4 +1,4 @@
-#N canvas 0 25 1536 907 12;
+#N canvas 4 24 1496 923 12;
 #X obj 801 838 outlet~;
 #X obj 734 77 inlet~;
 #X text 691 77 clock;
@@ -36,26 +36,26 @@
 #X obj 685 324 + 1;
 #X obj 685 348 t b f;
 #X obj 807 801 /~ 127;
-#X obj 101 101 cnv 15 398 398 empty empty empty 20 12 0 14 -262130
--66577 0;
+#X obj 101 101 cnv 15 398 398 empty empty empty 20 12 0 14 #fcfcc4
+#404040 0;
 #X obj 122 199 vsl 32 200 0 127 0 0 \$0-step-cv-1 \$0-step1-cc 1 0
--9 0 10 -262144 -1 -1 5171 1;
+-9 0 10 #fcfcfc #000000 #000000 1254 1;
 #X obj 122 430 bng 32 250 50 0 \$0-step-trig-1 \$0-step-trig-btn-1
-empty 17 7 0 10 -262144 -1 -1;
+empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X obj 162 199 vsl 32 200 0 127 0 0 \$0-step-cv-2 \$0-step2-cc 2 0
--9 0 10 -262144 -1 -1 5641 1;
+-9 0 10 #fcfcfc #000000 #000000 1724 1;
 #X obj 162 430 bng 32 250 50 0 \$0-step-trig-2 \$0-step-trig-btn-2
-empty 17 7 0 10 -262144 -1 -1;
+empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X obj 202 199 vsl 32 200 0 127 0 0 \$0-step-cv-3 \$0-step3-cc 3 0
--9 0 10 -262144 -1 -1 5954 1;
+-9 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 202 430 bng 32 250 50 0 \$0-step-trig-3 \$0-step-trig-btn-3
-empty 17 7 0 10 -262144 -1 -1;
+empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X obj 242 199 vsl 32 200 0 127 0 0 \$0-step-cv-4 \$0-step4-cc 4 0
--9 0 10 -262144 -1 -1 6111 1;
+-9 0 10 #fcfcfc #000000 #000000 10498 1;
 #X obj 242 430 bng 32 250 50 0 \$0-step-trig-4 \$0-step-trig-btn-4
-empty 17 7 0 10 -262144 -1 -1;
-#X obj 368 300 vradio 16 1 0 6 seq-mod-dest empty sequencer dest 0
--8 0 10 -262144 -1 -1 1;
+empty 17 7 0 10 #fcfcfc #000000 #000000;
+#X obj 368 300 vradio 15 0 0 8 empty empty sequencer 0 -8 0 10 #fcfcfc
+#000000 #000000 1;
 #X text 384 296 waveform;
 #X text 384 328 srr;
 #X text 384 345 cutoff;
@@ -81,6 +81,7 @@ empty 17 7 0 10 -262144 -1 -1;
 #X obj 75 51 swap;
 #X obj 75 75 pack;
 #X obj 75 111 route 44 45 46 47;
+#X obj 390 560 s seq-mod-dest;
 #X connect 1 0 12 0;
 #X connect 3 0 5 0;
 #X connect 4 0 3 0;
@@ -120,6 +121,7 @@ empty 17 7 0 10 -262144 -1 -1;
 #X connect 35 0 32 0;
 #X connect 35 1 33 0;
 #X connect 36 0 0 0;
+#X connect 46 0 72 0;
 #X connect 53 0 54 0;
 #X connect 53 0 64 0;
 #X connect 53 0 67 0;

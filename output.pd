@@ -1,4 +1,4 @@
-#N canvas 7 39 2242 1377 12;
+#N canvas 4 24 1496 923 12;
 #X obj 443 430 dac~;
 #X obj 452 390 *~ 0.5;
 #X obj 450 351 clip~ -1 1;
@@ -21,10 +21,10 @@
 #X obj 101 101 cnv 15 198 398 empty empty empty 20 12 0 14 #c7c6ff
 #404040 0;
 #X obj 163 227 vsl 64 256 0 127 0 0 \$0-vol \$0-vol-knob volume 0 -9
-0 10 #fcfcfc #000000 #000000 0 1;
+0 10 #fcfcfc #000000 #000000 20100 1;
 #N canvas 0 50 450 300 (subpatch) 0;
-#X array scope 1000 float 0;
-#X coords 0 1 999 -1 100 64 1 0 0;
+#X array scope 1000 float 0 black black;
+#X coords 0 1 999 -1 100 64 1;
 #X restore 144 146 graph;
 #X connect 1 0 0 0;
 #X connect 1 0 0 1;

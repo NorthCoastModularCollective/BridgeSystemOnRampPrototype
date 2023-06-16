@@ -1,4 +1,4 @@
-#N canvas 7 39 2242 1377 12;
+#N canvas 4 24 1496 923 12;
 #X obj 387 398 vline~;
 #X msg 387 371 1 \$1 \, 0 \$2 \$1;
 #X obj 347 498 outlet~;
@@ -39,7 +39,7 @@
 #X obj 137 151 hsl 128 64 0 127 0 0 \$0-attack \$0-attack-knob attack
 -2 -8 0 10 #fcfcfc #000000 #000000 0 1;
 #X obj 137 241 hsl 128 64 0 127 0 0 \$0-decay \$0-decay-knob decay
--2 -8 0 10 #fcfcfc #000000 #000000 0 1;
+-2 -8 0 10 #fcfcfc #000000 #000000 5700 1;
 #X obj 563 520 loadbang;
 #X msg 563 545 10;
 #X connect 0 0 13 1;
