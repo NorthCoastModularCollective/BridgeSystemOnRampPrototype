@@ -108,6 +108,7 @@ void loop() {
   readFaders();
   readKnobs();
   updateMidi();
+  if(buttons[0].changed()){ digitalWrite(SEQUENCER_LED1_PIN, HIGH)} else {digitalWrite(SEQUENCER_LED1_PIN, LOW)}
   delay(20);
 }
 
