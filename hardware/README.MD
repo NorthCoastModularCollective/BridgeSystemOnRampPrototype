@@ -1,7 +1,7 @@
 This folder contains the designs for PCBs, panels, and other hardware items for the Bridge System Onramp.
 
 |Pin| MIDI CC | Component|
-|----|----------|
+|----|-----------|----------|
 |0| 23 | Decay In|
 |1| N/A | MISO (LCD Screen)|
 |2| 17 | Trigger button|
