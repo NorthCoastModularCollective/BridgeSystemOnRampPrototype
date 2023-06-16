@@ -1,4 +1,4 @@
-#N canvas 7 39 2242 1377 12;
+#N canvas 0 25 1536 907 12;
 #X obj 801 838 outlet~;
 #X obj 734 77 inlet~;
 #X text 691 77 clock;
@@ -36,26 +36,26 @@
 #X obj 685 324 + 1;
 #X obj 685 348 t b f;
 #X obj 807 801 /~ 127;
-#X obj 101 101 cnv 15 398 398 empty empty empty 20 12 0 14 #feffc6
-#404040 0;
-#X obj 122 199 vsl 32 200 0 127 0 0 \$0-step-cv-1 empty 1 0 -9 0 10
-#fcfcfc #000000 #000000 0 1;
+#X obj 101 101 cnv 15 398 398 empty empty empty 20 12 0 14 -262130
+-66577 0;
+#X obj 122 199 vsl 32 200 0 127 0 0 \$0-step-cv-1 \$0-step1-cc 1 0
+-9 0 10 -262144 -1 -1 5171 1;
 #X obj 122 430 bng 32 250 50 0 \$0-step-trig-1 \$0-step-trig-btn-1
-empty 17 7 0 10 #fcfcfc #000000 #000000;
-#X obj 162 199 vsl 32 200 0 127 0 0 \$0-step-cv-2 empty 2 0 -9 0 10
-#fcfcfc #000000 #000000 0 1;
+empty 17 7 0 10 -262144 -1 -1;
+#X obj 162 199 vsl 32 200 0 127 0 0 \$0-step-cv-2 \$0-step2-cc 2 0
+-9 0 10 -262144 -1 -1 5641 1;
 #X obj 162 430 bng 32 250 50 0 \$0-step-trig-2 \$0-step-trig-btn-2
-empty 17 7 0 10 #fcfcfc #000000 #000000;
-#X obj 202 199 vsl 32 200 0 127 0 0 \$0-step-cv-3 empty 3 0 -9 0 10
-#fcfcfc #000000 #000000 0 1;
+empty 17 7 0 10 -262144 -1 -1;
+#X obj 202 199 vsl 32 200 0 127 0 0 \$0-step-cv-3 \$0-step3-cc 3 0
+-9 0 10 -262144 -1 -1 5954 1;
 #X obj 202 430 bng 32 250 50 0 \$0-step-trig-3 \$0-step-trig-btn-3
-empty 17 7 0 10 #fcfcfc #000000 #000000;
-#X obj 242 199 vsl 32 200 0 127 0 0 \$0-step-cv-4 empty 4 0 -9 0 10
-#fcfcfc #000000 #000000 0 1;
+empty 17 7 0 10 -262144 -1 -1;
+#X obj 242 199 vsl 32 200 0 127 0 0 \$0-step-cv-4 \$0-step4-cc 4 0
+-9 0 10 -262144 -1 -1 6111 1;
 #X obj 242 430 bng 32 250 50 0 \$0-step-trig-4 \$0-step-trig-btn-4
-empty 17 7 0 10 #fcfcfc #000000 #000000;
-#X obj 368 300 vradio 16 1 0 6 seq-mod-dest empty sequencer\\\ dest
-0 -8 0 10 #fcfcfc #000000 #000000 0;
+empty 17 7 0 10 -262144 -1 -1;
+#X obj 368 300 vradio 16 1 0 6 seq-mod-dest empty sequencer dest 0
+-8 0 10 -262144 -1 -1 1;
 #X text 384 296 waveform;
 #X text 384 328 srr;
 #X text 384 345 cutoff;
@@ -77,6 +77,10 @@ empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X msg 175 62 36;
 #X msg 226 66 38;
 #X msg 275 59 39;
+#X obj 75 23 ctlin;
+#X obj 75 51 swap;
+#X obj 75 75 pack;
+#X obj 75 111 route 44 45 46 47;
 #X connect 1 0 12 0;
 #X connect 3 0 5 0;
 #X connect 4 0 3 0;
@@ -138,4 +142,13 @@ empty 17 7 0 10 #fcfcfc #000000 #000000;
 #X connect 65 0 40 0;
 #X connect 66 0 42 0;
 #X connect 67 0 44 0;
+#X connect 68 0 69 0;
+#X connect 68 1 69 1;
+#X connect 69 0 70 0;
+#X connect 69 1 70 1;
+#X connect 70 0 71 0;
+#X connect 71 0 38 0;
+#X connect 71 1 40 0;
+#X connect 71 2 42 0;
+#X connect 71 3 44 0;
 #X coords 0 -1 1 1 400 400 1 100 100;
