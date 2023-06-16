@@ -2,23 +2,23 @@ This folder contains the designs for PCBs, panels, and other hardware items for 
 
 |Pin| MIDI CC | Component|
 |----|-----------|----------|
-|0| 23 | Decay In|
+|0| N/A | Decay Input Jack |
 |1| N/A | MISO (LCD Screen)|
-|2| 17 | Trigger button|
-|3| N/A| SRR (shaper) in|
-|4| N/A | Filter Cutoff in|
-|5| N/A | Envelope Attack in|
-|6| N/A| Waveform Selector in|
+|2| 17 | Trigger Button|
+|3| N/A| SRR (shaper) Input Jack |
+|4| N/A | Filter Cutoff Input Jack |
+|5| N/A | Envelope Attack Input Jack |
+|6| N/A| Waveform Selector Input Jack |
 |7| N/A | DIN (SGTL5000 Audio Chip)|
 |8| N/A | DOUT (SGTL5000 Audio Chip)|
-|9| N/A | clock Out|
-|10| N/A | trigger Out|
+|9| N/A | clock Output Jack|
+|10| N/A | trigger Output Jack|
 |11| N/A | MOSI (LCD Screen)|
-|12| N/A | Sequencer Out|
+|12| N/A | Sequencer Output Jack|
 |13| N/A | Sequencer 4th LED|
 |14| 30 | LFO Wave Knob |
-|15| 28 | Envelope Attack In |
-|16| 26| SRR (shaper) in|
+|15| 28 | Envelope Attack Input Jack |
+|16| 26| SRR (shaper) Input Jack |
 |17| 27 | Filter Cutoff Knob |
 |18| N/A |SDA (SGTL5000 Audio Chip)|
 |19| N/A |SCL (SGTL5000 Audio Chip)|
@@ -26,11 +26,11 @@ This folder contains the designs for PCBs, panels, and other hardware items for 
 |21| N/A |BLCK (SGTL5000 Audio Chip)|
 |22| 31| LFO Rate Knob |
 |23| 32 | LFO Amount Knob |
-|24| 44 | Sequencer fader 1|
-|25| 45| Sequencer fader 2|
-|26| 46 | Sequencer fader 3|
-|27| 47 | Sequencer fader 4|
-|28| N/A | LFO Output|
+|24| 44 | Sequencer Fader 1|
+|25| 45| Sequencer Fader 2|
+|26| 46 | Sequencer Fader 3|
+|27| 47 | Sequencer Fader 4|
+|28| N/A | LFO Output Jack|
 |29| N/A |Sequencer 1st LED|
 |30| N/A |Sequencer 2nd LED|
 |31| N/A |Sequencer 3rd LED|
