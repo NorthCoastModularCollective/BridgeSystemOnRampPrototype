@@ -1,46 +1,46 @@
 This folder contains the designs for PCBs, panels, and other hardware items for the Bridge System Onramp.
 
-|Pin| Component|
+|Pin| MIDI CC | Component|
 |----|----------|
-|0| Decay In|
-|1| MISO (LCD Screen)|
-|2| Trigger button|
-|3| shaper in|
-|4| filter in|
-|5| attack in|
-|6| waveform in|
-|7| DIN (SGTL5000 Audio Chip)|
-|8| DOUT (SGTL5000 Audio Chip)|
-|9| clock Out|
-|10|trigger Out|
-|11|MOSI (LCD Screen)|
-|12|Sequencer Out|
-|13|Sequencer 4th LED|
-|14|LFO Wave|
-|15|Envelope Attack|
-|16|Shaper|
-|17|Filter|
-|18|SDA (SGTL5000 Audio Chip)|
-|19|SCL (SGTL5000 Audio Chip)|
-|20|LRCLCK (SGTL5000 Audio Chip)|
-|21|BLCK (SGTL5000 Audio Chip)|
-|22|LFO Rate|
-|23|LFO Amount|
-|24|Sequencer fader 1|
-|25|Sequencer fader 2|
-|26|Sequencer fader 3|
-|27|Sequencer fader 4|
-|28|LFO Output|
-|29|Sequencer 1st LED|
-|30|Sequencer 2nd LED|
-|31|Sequencer 3rd LED|
-|32|reset (LCD Screen)|
-|33|MCLK (SGTL5000 Audio Chip)|
-|34|Clock Start/stop Button|
-|35|Rotary Encoder A (clock speed)|
-|36|RS (LCD Screen)|
-|37|CS1 (LCD Screen)|
-|38|Rotary Encoder B (clock speed)|
-|39|Clock LED|
-|40|Envelope Decay|
-|41|Oscillator Wave Form|
+|0| 23 | Decay In|
+|1| N/A | MISO (LCD Screen)|
+|2| 17 | Trigger button|
+|3| N/A| SRR (shaper) in|
+|4| N/A | Filter Cutoff in|
+|5| N/A | Envelope Attack in|
+|6| N/A| Waveform Selector in|
+|7| N/A | DIN (SGTL5000 Audio Chip)|
+|8| N/A | DOUT (SGTL5000 Audio Chip)|
+|9| N/A | clock Out|
+|10| N/A | trigger Out|
+|11| N/A | MOSI (LCD Screen)|
+|12| N/A | Sequencer Out|
+|13| N/A | Sequencer 4th LED|
+|14| 30 | LFO Wave Knob |
+|15| 28 | Envelope Attack In |
+|16| 26| SRR (shaper) in|
+|17| 27 | Filter Cutoff Knob |
+|18| N/A |SDA (SGTL5000 Audio Chip)|
+|19| N/A |SCL (SGTL5000 Audio Chip)|
+|20| N/A |LRCLCK (SGTL5000 Audio Chip)|
+|21| N/A |BLCK (SGTL5000 Audio Chip)|
+|22| 31| LFO Rate Knob |
+|23| 32 | LFO Amount Knob |
+|24| 44 | Sequencer fader 1|
+|25| 45| Sequencer fader 2|
+|26| 46 | Sequencer fader 3|
+|27| 47 | Sequencer fader 4|
+|28| N/A | LFO Output|
+|29| N/A |Sequencer 1st LED|
+|30| N/A |Sequencer 2nd LED|
+|31| N/A |Sequencer 3rd LED|
+|32| N/A | reset (LCD Screen)|
+|33| N/A | MCLK (SGTL5000 Audio Chip)|
+|34| 17 | Clock Start/stop Button|
+|35| N/A | Rotary Encoder A (clock speed)|
+|36| N/A | RS (LCD Screen)|
+|37| N/A | CS1 (LCD Screen)|
+|38| N/A | Rotary Encoder B (clock speed)|
+|39| N/A | Clock LED|
+|40| 23 | Envelope Decay Knob|
+|41| 25| Oscillator Waveform Knob |
