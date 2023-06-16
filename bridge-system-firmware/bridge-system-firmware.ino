@@ -71,14 +71,21 @@
 #define OSCILLATOR_WAVE_KNOB_PIN 41    // Oscillator Wave Form
 #define NUM_SEQ_STEPS 4
 #define NUM_KNOB_PINS 8
+#define NUM_BUTTONS 2
+#define MIN_PIN_READING 0
+#define MAX_PIN_READING 1023
+
+
 short seqFaderPins[NUM_SEQ_STEPS] = {SEQ_FADER1_PIN, SEQ_FADER2_PIN,
                                      SEQ_FADER3_PIN, SEQ_FADER4_PIN};
 short knobPins[NUM_KNOB_PINS] = {
     SHAPER_KNOB_PIN,         FILTER_KNOB_PIN,         LFO_RATE_KNOB_PIN,
     LFO_AMOUNT_KNOB_PIN,     LFO_WAVE_KNOB_PIN,       ENV_ATTACK_KNOB_PIN,
     ENVELOPE_DECAY_KNOB_PIN, OSCILLATOR_WAVE_KNOB_PIN};
+
 Bounce clockStartStopButton = Bounce();
 Bounce triggerButton = Bounce();
+Bounce buttons[NUM_BUTTONS] = {clockStartStopButton, triggerButton};
 
 // the MIDI channel number to send messages
 const int midiChannel = 1;
@@ -87,6 +94,7 @@ int faderValues[NUM_SEQ_STEPS] = {0, 0, 0, 0};
 int faderCCNumbers[NUM_SEQ_STEPS] = {44, 45, 46, 47};
 int knobValues[NUM_KNOB_PINS] = {0, 0, 0, 0, 0, 0, 0, 0};
 int knobCCNumbers[NUM_KNOB_PINS] = {26, 27, 31, 32, 30, 28, 23, 25};
+int buttonCCNumbers[NUM_BUTTONS] = {17,18};
 
 void setup() {
   clockStartStopButton.attach(CLOCK_START_STOP_BUTTON_PIN);
@@ -94,10 +102,17 @@ void setup() {
 }
 
 void loop() {
+  readButtons();
   readFaders();
   readKnobs();
   updateMidi();
   delay(20);
+}
+
+void readButtons(){
+    for(int i = 0; i < NUM_BUTTONS; i++){
+        buttons[i].update();
+    }
 }
 
 void readFaders() {
@@ -115,10 +130,20 @@ void updateMidi() {
 
   for (int i = 0; i < NUM_SEQ_STEPS; i++) {
     usbMIDI.sendControlChange(
-        faderCCNumbers[i], map(faderValues[i], 0, 1023, 0, 127), midiChannel);
+        faderCCNumbers[i], mapFaderValueToNoteRange(faderValues[i]), midiChannel);
   }
   for (int i = 0; i < NUM_KNOB_PINS; i++) {
     usbMIDI.sendControlChange(knobCCNumbers[i],
-                              map(knobValues[i], 0, 1023, 0, 127), midiChannel);
+                              map(knobValues[i], MIN_PIN_READING, MAX_PIN_READING, 0, 127), midiChannel);
   }
+  for (int i = 0; i < NUM_BUTTONS; i++){
+    int buttonValue = buttons[i].changed()?127:0;
+    usbMIDI.sendControlChange(buttonCCNumbers[i], buttonValue, midiChannel);
+  }
+}
+
+float mapFaderValueToNoteRange(int faderValue){
+    const float MAX_NOTE = 96;
+    const float MIN_NOTE = 21;
+    return (float(faderValue)/float(MAX_PIN_READING))*(MAX_NOTE-MIN_NOTE)+MIN_NOTE;
 }
