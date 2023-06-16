@@ -11,8 +11,8 @@ This folder contains the designs for PCBs, panels, and other hardware items for 
 |6| N/A| Waveform Selector Input Jack |
 |7| N/A | DIN (SGTL5000 Audio Chip)|
 |8| N/A | DOUT (SGTL5000 Audio Chip)|
-|9| N/A | clock Output Jack|
-|10| N/A | trigger Output Jack|
+|9| N/A | Clock Output Jack|
+|10| N/A | Trigger Output Jack|
 |11| N/A | MOSI (LCD Screen)|
 |12| N/A | Sequencer Output Jack|
 |13| N/A | Sequencer 4th LED|
@@ -34,7 +34,7 @@ This folder contains the designs for PCBs, panels, and other hardware items for 
 |29| N/A |Sequencer 1st LED|
 |30| N/A |Sequencer 2nd LED|
 |31| N/A |Sequencer 3rd LED|
-|32| N/A | reset (LCD Screen)|
+|32| N/A | Reset (LCD Screen)|
 |33| N/A | MCLK (SGTL5000 Audio Chip)|
 |34| 17 | Clock Start/stop Button|
 |35| N/A | Rotary Encoder A (clock speed)|
