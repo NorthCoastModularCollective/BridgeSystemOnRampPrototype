@@ -25,7 +25,7 @@
   Note: Make sure "MIDI" is selected from the "Tools > USB Type" menu in the
   Arduino IDE so that it shows up as a MIDI interface.
 */
-#include <Bounce2.h>
+//#include <Bounce2.h>
 
 #define DECAY_IN_PIN 0                 // Decay In
 #define MISO_LCD_PIN 1                 // MISO (LCD Screen)
@@ -83,9 +83,10 @@ short knobPins[NUM_KNOB_PINS] = {
     LFO_AMOUNT_KNOB_PIN,     LFO_WAVE_KNOB_PIN,       ENV_ATTACK_KNOB_PIN,
     ENVELOPE_DECAY_KNOB_PIN, OSCILLATOR_WAVE_KNOB_PIN};
 
-Bounce clockStartStopButton = Bounce();
-Bounce triggerButton = Bounce();
-Bounce buttons[NUM_BUTTONS] = {clockStartStopButton, triggerButton};
+//Bounce clockStartStopButton = Bounce();
+//Bounce triggerButton = Bounce();
+//Bounce buttons[NUM_BUTTONS] = {triggerButton, clockStartStopButton};
+short buttonPins[NUM_BUTTONS] = {TRIGGER_BUTTON_PIN, CLOCK_START_STOP_BUTTON_PIN};
 
 // the MIDI channel number to send messages
 const int midiChannel = 1;
@@ -98,10 +99,12 @@ int buttonValues[NUM_BUTTONS] = {0,0};
 int buttonCCNumbers[NUM_BUTTONS] = {17,18};
 
 void setup() {
-  pinMode(CLOCK_START_STOP_BUTTON_PIN, INPUT_PULLUP);
-  pinMode(TRIGGER_BUTTON_PIN, INPUT_PULLUP);
-  clockStartStopButton.attach(CLOCK_START_STOP_BUTTON_PIN);
-  triggerButton.attach(TRIGGER_BUTTON_PIN);
+  for(int i = 0; i < NUM_BUTTONS; i++){
+    pinMode(buttonPins[i], INPUT_PULLUP);
+  }
+  //clockStartStopButton.attach(CLOCK_START_STOP_BUTTON_PIN);
+  //triggerButton.attach(TRIGGER_BUTTON_PIN);
+  digitalWrite(SEQ_FADER4_PIN, HIGH);
 }
 
 void loop() {
@@ -115,8 +118,9 @@ void loop() {
 
 void readButtons(){
     for(int i = 0; i < NUM_BUTTONS; i++){
-        buttons[i].update();
-        buttonValues[i] = buttons[i].read();
+        //buttons[i].update();
+        //buttonValues[i] = buttons[i].read();
+        buttonValues[i] = digitalRead(buttonPins[i]);
     }
 }
 
