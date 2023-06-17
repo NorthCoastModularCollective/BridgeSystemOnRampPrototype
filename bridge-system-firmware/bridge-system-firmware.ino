@@ -116,7 +116,7 @@ void loop() {
 void readButtons(){
     for(int i = 0; i < NUM_BUTTONS; i++){
         buttons[i].update();
-        if(buttons[i].changed()) buttonValues[i] = buttons[i].read();
+        if(buttonsValues[0]>0) buttonValues[i] = buttons[i].read();
     }
 }
 
