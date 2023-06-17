@@ -69,12 +69,14 @@
 #define CLOCK_LED_PIN 39               // Clock LED
 #define ENVELOPE_DECAY_KNOB_PIN 40     // Envelope Decay
 #define OSCILLATOR_WAVE_KNOB_PIN 41    // Oscillator Wave Form
+#define NUM_LEDS 5
 #define NUM_SEQ_STEPS 4
 #define NUM_KNOB_PINS 8
 #define NUM_BUTTONS 2
 #define MIN_PIN_READING 0
 #define MAX_PIN_READING 1023
 
+short ledPins[NUM_LEDS] = {SEQUENCER_LED1_PIN, SEQUENCER_LED2_PIN, SEQUENCER_LED3_PIN, SEQUENCER_LED4_PIN, CLOCK_LED_PIN };
 
 short seqFaderPins[NUM_SEQ_STEPS] = {SEQ_FADER1_PIN, SEQ_FADER2_PIN,
                                      SEQ_FADER3_PIN, SEQ_FADER4_PIN};
@@ -102,6 +104,10 @@ void setup() {
   for(int i = 0; i < NUM_BUTTONS; i++){
     pinMode(buttonPins[i], INPUT_PULLUP);
   }
+  for(int i = 0; i < NUM_LEDS; i++){
+    pinMode(ledPins[i], OUTPUT);
+  }
+
   //clockStartStopButton.attach(CLOCK_START_STOP_BUTTON_PIN);
   //triggerButton.attach(TRIGGER_BUTTON_PIN);
   digitalWrite(SEQ_FADER4_PIN, HIGH);
