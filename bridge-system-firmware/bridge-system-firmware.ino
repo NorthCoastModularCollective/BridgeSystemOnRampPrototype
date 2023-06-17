@@ -109,14 +109,14 @@ void loop() {
   readFaders();
   readKnobs();
   updateMidi();
-  if(buttonValues[0]>0){ digitalWrite(SEQUENCER_LED1_PIN, HIGH);} else {digitalWrite(SEQUENCER_LED1_PIN, LOW);}
+  if(buttonValues[0]==LOW){ digitalWrite(SEQUENCER_LED1_PIN, HIGH);} else {digitalWrite(SEQUENCER_LED1_PIN, LOW);}
   delay(20);
 }
 
 void readButtons(){
     for(int i = 0; i < NUM_BUTTONS; i++){
         buttons[i].update();
-        if(buttonValues[0]>0) buttonValues[i] = buttons[i].read();
+        buttonValues[i] = buttons[i].read();
     }
 }
 
