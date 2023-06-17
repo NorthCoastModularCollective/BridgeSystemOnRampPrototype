@@ -94,6 +94,7 @@ int faderValues[NUM_SEQ_STEPS] = {0, 0, 0, 0};
 int faderCCNumbers[NUM_SEQ_STEPS] = {44, 45, 46, 47};
 int knobValues[NUM_KNOB_PINS] = {0, 0, 0, 0, 0, 0, 0, 0};
 int knobCCNumbers[NUM_KNOB_PINS] = {26, 27, 31, 32, 30, 28, 23, 25};
+int buttonValues[NUM_BUTTONS] = {0,0};
 int buttonCCNumbers[NUM_BUTTONS] = {17,18};
 
 void setup() {
@@ -115,6 +116,7 @@ void loop() {
 void readButtons(){
     for(int i = 0; i < NUM_BUTTONS; i++){
         buttons[i].update();
+        if(buttons[i].changed()) buttonValues[i] = buttons[i].read();
     }
 }
 
@@ -140,8 +142,7 @@ void updateMidi() {
                               map(knobValues[i], MIN_PIN_READING, MAX_PIN_READING, 0, 127), midiChannel);
   }
   for (int i = 0; i < NUM_BUTTONS; i++){
-    int buttonValue = buttons[i].changed()?127:0;
-    usbMIDI.sendControlChange(buttonCCNumbers[i], buttonValue, midiChannel);
+    usbMIDI.sendControlChange(buttonCCNumbers[i], buttonValues[i], midiChannel);
   }
 }
 
