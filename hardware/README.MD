@@ -1,5 +1,6 @@
 This folder contains the designs for PCBs, panels, and other hardware items for the Bridge System Onramp.
 
+| Pinout map for v1 hardware |
 |Pin| MIDI CC | Component|
 |----|-----------|----------|
 |0| N/A | Decay Input Jack |
