@@ -119,15 +119,27 @@ int buttonCCNumbers[NUM_BUTTONS] = {17,18};
 #include <SerialFlash.h>
 
 // GUItool: begin automatically generated code
-AudioSynthWaveformSine   sine1;          //xy=359.3333282470703,365.3333282470703
-AudioOutputUSB           audioOutput; // must set Tools > USB Type to Audio
-AudioOutputAnalog        dac; // change this to AudioOutputI2S for boards without DAC output
-AudioConnection          patchCord1(sine1, 0, audioOutput, 0);
-AudioConnection          patchCord2(sine1, 1, audioOutput, 1);
-AudioConnection          patchCord3(sine1, 0, dac, 0);
-// end
+AudioInputI2S            i2s2Input;           //xy=316.33331298828125,249.33331298828125
+AudioSynthWaveformSine   sine1;          //xy=331.33331298828125,436.33331298828125
+AudioMixer4              mixerR; //xy=497.33331298828125,337.3333435058594
+AudioMixer4              mixerL;         //xy=513.3333129882812,248.33331298828125
+AudioOutputI2S           i2s1Output;           //xy=640.3333282470703,279.3333282470703
+AudioOutputUSB           audioOutput;           //xy=658.3333282470703,346.3333282470703
+AudioConnection          patchCord1(i2s2Input, 0, mixerL, 0);
+AudioConnection          patchCord2(i2s2Input, 1, mixerR, 0);
+AudioConnection          patchCord3(sine1, 0, mixerL, 2);
+AudioConnection          patchCord4(sine1, 0, mixerR, 2);
+AudioConnection          patchCord5(mixerR, 0, i2s1Output, 1);
+AudioConnection          patchCord6(mixerR, 0, audioOutput, 1);
+AudioConnection          patchCord7(mixerL, 0, i2s1Output, 0);
+AudioConnection          patchCord8(mixerL, 0, audioOutput, 0);
+// GUItool: end automatically generated code
+
+AudioControlSGTL5000     sgtl5000_1;     //xy=302,184
 
 
+// GUItool: end automatically generated code
+const int AUDIO_INPUT = AUDIO_INPUT_LINEIN;
 void setup() {
   for(int i = 0; i < NUM_BUTTONS; i++){
     pinMode(buttonPins[i], INPUT_PULLUP);
@@ -147,6 +159,9 @@ void setup() {
   //digitalWrite(SEQ_FADER4_PIN, HIGH);
   AudioMemory(20);
   AudioNoInterrupts();
+  sgtl5000_1.enable();
+  sgtl5000_1.inputSelect(AUDIO_INPUT);
+  sgtl5000_1.volume(0.5);
   sine1.amplitude(9.0);
   sine1.frequency(440.0);
   AudioInterrupts();
@@ -211,7 +226,7 @@ void updateMidi() {
 }
 
 void updateParameters(){
-  
+
 }
 
 float mapFaderValueToNoteRange(int faderValue){
