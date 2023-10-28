@@ -89,6 +89,9 @@ short knobPins[NUM_KNOB_PINS] = {
 //Bounce triggerButton = Bounce();
 //Bounce buttons[NUM_BUTTONS] = {triggerButton, clockStartStopButton};
 short buttonPins[NUM_BUTTONS] = {TRIGGER_BUTTON_PIN, CLOCK_START_STOP_BUTTON_PIN};
+//Bounce clockStartStopButton = Bounce();
+//Bounce triggerButton = Bounce();
+//Bounce buttons[NUM_BUTTONS] = {clockStartStopButton, triggerButton};
 
 // the MIDI channel number to send messages
 const int midiChannel = 1;
@@ -126,7 +129,8 @@ void readButtons(){
     for(int i = 0; i < NUM_BUTTONS; i++){
         //buttons[i].update();
         //buttonValues[i] = buttons[i].read();
-        buttonValues[i] = digitalRead(buttonPins[i]);
+//        buttonValues[i] = digitalRead(buttonPins[i]);
+//        buttons[i].update();
     }
 }
 
