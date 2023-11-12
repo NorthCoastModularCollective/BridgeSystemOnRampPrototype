@@ -18562,7 +18562,7 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 830cdcbb-18be-4cd7-91fe-9dd4a1f3c8cf)
   )
-  (text "Needed Changes:\n1) fix the button wiring\n2) rewire the outputs to be L/R mirrors, not L then R\n3) Add standoff holes with space around edges to mount it in a box if needed\n4) Rename clock start-stop to clock play-pause\n5) Swap \"trigger\" button with arcade button in schematic/PCB\n6) Add LEDs to the inputs to show patched signal values\n7) For the patch out jacks, make it so the output/input doesn't need a pullup resistor?\n8) Rev 3: Make input jacks able to handle Euro level inputs - Use op amps?\n\n"
+  (text "Needed Changes:\n1) fix the button wiring\n2) rewire the outputs to be L/R mirrors, not L then R\n3) Add standoff holes with space around edges to mount it in a box if needed\n4) Rename clock start-stop to clock play-pause\n5) Swap \"trigger\" button with arcade button in schematic/PCB\n6) Add LEDs to the inputs to show patched signal values\n7) For the patch out jacks, make it so the output/input doesn't need a pullup resistor?\n8) Rev 3: Make input jacks able to handle Euro level inputs - Use op amps?\n9) MCLK from Audio board is supposed to go to pin 23 not 33. Currently LFO ammount is at 23, need to find a new home for it.\n10) Look into a MUX for analog pins, like this one: CD74HC4051-EP Analog Multiplexer and Demultiplexer \n\n"
     (at 104.14 330.2 0)
     (effects (font (size 2 2)) (justify left bottom))
     (uuid a1c455ad-8193-4d74-ae15-b6bedf960e07)
