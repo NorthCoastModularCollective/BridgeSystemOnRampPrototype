@@ -633,7 +633,7 @@
     (uuid f1a5da92-59e1-4c28-be32-8b572348e98d)
   )
 
-  (image (at 275.59 80.01) (scale 0.72312)
+  (image (at 238.76 64.77) (scale 0.72312)
     (uuid bd972273-e573-4f85-b7b5-5aff0127914d)
     (data
       iVBORw0KGgoAAAANSUhEUgAABCIAAAXsCAIAAAB8Jr90AAAAA3NCSVQICAjb4U/gAAAACXBIWXMA
@@ -5211,7 +5211,7 @@
     (property "Reference" "J1" (at 181.61 96.52 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Value" "Conn_02x04_Counter_Clockwise" (at 181.61 99.06 0)
+    (property "Value" "LCD Screen Connector" (at 181.61 99.06 0)
       (effects (font (size 1.27 1.27)))
     )
     (property "Footprint" "Connector_PinSocket_2.00mm:PinSocket_2x04_P2.00mm_Vertical_SMD" (at 180.34 104.14 0)
