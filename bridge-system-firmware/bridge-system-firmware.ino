@@ -73,6 +73,8 @@
 #define NUM_SEQ_STEPS 4
 #define NUM_KNOB_PINS 8
 #define NUM_BUTTONS 2
+#define NUM_PATCH_INPUT_PINS 5
+#define NUM_PATCH_OUTPUT_PINS 4
 #define MIN_PIN_READING 0
 #define MAX_PIN_READING 1023
 
@@ -85,10 +87,16 @@ short knobPins[NUM_KNOB_PINS] = {
     LFO_AMOUNT_KNOB_PIN,     LFO_WAVE_KNOB_PIN,       ENV_ATTACK_KNOB_PIN,
     ENVELOPE_DECAY_KNOB_PIN, OSCILLATOR_WAVE_KNOB_PIN};
 
+short patchInputPins[NUM_PATCH_INPUT_PINS] = {WAVEFORM_IN_PIN, SHAPER_IN_PIN, FILTER_IN_PIN, ATTACK_IN_PIN, DECAY_IN_PIN };
+short patchOutputPins[NUM_PATCH_OUTPUT_PINS] = {CLOCK_OUT_PIN, TRIGGER_OUT_PIN, SEQUENCER_OUT_PIN, LFO_OUT_PIN};
+
 //Bounce clockStartStopButton = Bounce();
 //Bounce triggerButton = Bounce();
 //Bounce buttons[NUM_BUTTONS] = {triggerButton, clockStartStopButton};
 short buttonPins[NUM_BUTTONS] = {TRIGGER_BUTTON_PIN, CLOCK_START_STOP_BUTTON_PIN};
+//Bounce clockStartStopButton = Bounce();
+//Bounce triggerButton = Bounce();
+//Bounce buttons[NUM_BUTTONS] = {clockStartStopButton, triggerButton};
 
 // the MIDI channel number to send messages
 const int midiChannel = 1;
@@ -98,11 +106,49 @@ int faderCCNumbers[NUM_SEQ_STEPS] = {44, 45, 46, 47};
 int knobValues[NUM_KNOB_PINS] = {0, 0, 0, 0, 0, 0, 0, 0};
 int knobCCNumbers[NUM_KNOB_PINS] = {26, 27, 31, 32, 30, 28, 23, 25};
 int buttonValues[NUM_BUTTONS] = {0,0};
+int patchInputValues[NUM_PATCH_INPUT_PINS] = {0,0,0,0,0};
 int buttonCCNumbers[NUM_BUTTONS] = {17,18};
 
+
+// AUDIO GRAPH
+
+#include <Audio.h>
+#include <Wire.h>
+#include <SPI.h>
+#include <SD.h>
+#include <SerialFlash.h>
+
+// GUItool: begin automatically generated code
+AudioInputI2S            i2s2Input;           //xy=316.33331298828125,249.33331298828125
+AudioSynthWaveformSine   sine1;          //xy=331.33331298828125,436.33331298828125
+AudioMixer4              mixerR; //xy=497.33331298828125,337.3333435058594
+AudioMixer4              mixerL;         //xy=513.3333129882812,248.33331298828125
+AudioOutputI2S           i2s1Output;           //xy=640.3333282470703,279.3333282470703
+AudioOutputUSB           audioOutput;           //xy=658.3333282470703,346.3333282470703
+AudioConnection          patchCord1(i2s2Input, 0, mixerL, 0);
+AudioConnection          patchCord2(i2s2Input, 1, mixerR, 0);
+AudioConnection          patchCord3(sine1, 0, mixerL, 2);
+AudioConnection          patchCord4(sine1, 0, mixerR, 2);
+AudioConnection          patchCord5(mixerR, 0, i2s1Output, 1);
+AudioConnection          patchCord6(mixerR, 0, audioOutput, 1);
+AudioConnection          patchCord7(mixerL, 0, i2s1Output, 0);
+AudioConnection          patchCord8(mixerL, 0, audioOutput, 0);
+// GUItool: end automatically generated code
+
+AudioControlSGTL5000     sgtl5000_1;     //xy=302,184
+
+
+// GUItool: end automatically generated code
+const int AUDIO_INPUT = AUDIO_INPUT_LINEIN;
 void setup() {
   for(int i = 0; i < NUM_BUTTONS; i++){
     pinMode(buttonPins[i], INPUT_PULLUP);
+  }
+  for(int i = 0; i < NUM_PATCH_INPUT_PINS; i++){
+    pinMode(patchInputPins[i], INPUT_PULLUP);
+  }
+  for(int i = 0; i < NUM_PATCH_OUTPUT_PINS; i++){
+    pinMode(patchOutputPins[i], OUTPUT);
   }
   for(int i = 0; i < NUM_LEDS; i++){
     pinMode(ledPins[i], OUTPUT);
@@ -110,23 +156,33 @@ void setup() {
 
   //clockStartStopButton.attach(CLOCK_START_STOP_BUTTON_PIN);
   //triggerButton.attach(TRIGGER_BUTTON_PIN);
-  digitalWrite(SEQ_FADER4_PIN, HIGH);
+  //digitalWrite(SEQ_FADER4_PIN, HIGH);
+  AudioMemory(20);
+  AudioNoInterrupts();
+  sgtl5000_1.enable();
+  sgtl5000_1.inputSelect(AUDIO_INPUT);
+  sgtl5000_1.volume(0.5);
+  sine1.amplitude(9.0);
+  sine1.frequency(440.0);
+  AudioInterrupts();
 }
 
 void loop() {
   readButtons();
   readFaders();
   readKnobs();
+  writePatchOutputs();
+  readPatchInputs();
   updateMidi();
-  if(buttonValues[0]==LOW){ digitalWrite(SEQUENCER_LED1_PIN, HIGH);} else {digitalWrite(SEQUENCER_LED1_PIN, LOW);}
+  updateParameters();
+  if(buttonValues[1]==LOW){ digitalWrite(SEQUENCER_LED1_PIN, HIGH);} else {digitalWrite(SEQUENCER_LED1_PIN, LOW);}
+  if(patchInputValues[1]==LOW){ digitalWrite(SEQUENCER_LED2_PIN, HIGH);} else {digitalWrite(SEQUENCER_LED2_PIN, LOW);}
   delay(20);
 }
 
 void readButtons(){
     for(int i = 0; i < NUM_BUTTONS; i++){
-        //buttons[i].update();
-        //buttonValues[i] = buttons[i].read();
-        buttonValues[i] = digitalRead(buttonPins[i]);
+      buttonValues[i] = digitalRead(buttonPins[i]);
     }
 }
 
@@ -141,6 +197,19 @@ void readKnobs() {
     knobValues[i] = analogRead(knobPins[i]);
   }
 }
+
+void readPatchInputs() {
+  for (int i = 0; i < NUM_PATCH_INPUT_PINS; i++) {
+    patchInputValues[i] = digitalRead(patchInputPins[i]);
+  }
+}
+
+void writePatchOutputs() {
+  for (int i = 0; i < NUM_PATCH_OUTPUT_PINS; i++) {
+     digitalWrite(patchOutputPins[i],LOW);
+  }
+}
+
 void updateMidi() {
 
   for (int i = 0; i < NUM_SEQ_STEPS; i++) {
@@ -154,6 +223,10 @@ void updateMidi() {
   for (int i = 0; i < NUM_BUTTONS; i++){
     usbMIDI.sendControlChange(buttonCCNumbers[i], buttonValues[i], midiChannel);
   }
+}
+
+void updateParameters(){
+
 }
 
 float mapFaderValueToNoteRange(int faderValue){
