@@ -2423,12 +2423,7 @@
     (effects (font (size 1.27 1.27)) (justify left bottom))
     (uuid 830cdcbb-18be-4cd7-91fe-9dd4a1f3c8cf)
   )
-  (text "Change Log (completed and in which version) \n[DONE v2] fix the button wiring\n[DONE v2] Rename clock start-stop to clock play-pause\n[DONE v2] Swap \"trigger\" button with arcade button in schematic/PCB\n[DONE v2] MCLK from Audio board is supposed to go to pin 23 not 33. Currently LFO ammount is at 23, need to find a new home for it.\n[DONE v2] Reorganize the parts on the PCB to match relative positions of new layout design\n[DONE v2] Add Mult jacks\n[DONE v2] Clock out changed to seqIN on pin 9\n[DONE v2] Swapped out onboard audio and LCD screen for the headers that connect to modules with them"
-    (at 332.74 326.39 0)
-    (effects (font (size 2 2)) (justify left bottom))
-    (uuid 9446b8f7-915c-4678-b59b-367f276ffbda)
-  )
-  (text "To-Do list for V3:\n-rewire the outputs to be L/R mirrors, not L then R (will probably need audio taper and dual pole pots)\n-Add standoff holes with space around edges to mount it in a box if needed (don't use vias)\n-Add LEDs to the inputs to show patched signal values\n-For the patch out jacks, make it so the output/input doesn't need a pullup resistor? (only if using PWM instead of CV)\n-Make input jacks able to handle Euro level inputs - Use op amps? (or use CV instead of PWM?)\n-Look into a MUX for analog pins, like this one: CD74HC4051-EP Analog Multiplexer and Demultiplexer \n-LFO Amount pot needs an analog pin on the Teensy\n-Add mounting holes for panel and LCD screen (don't use vias)\n-Add label for Audio board\n-Make cutoff pot detented\n-narrow the arcade button hole, so there's less slop and a more precise fit.\n-Add the negative pole indicator to all the LEDs\n-Need taller button caps than spec'd out currently\n-LCD jack on PCB should go up a little to give space for output pots\n-Add clock output jack with same digital out for the clock LED (maybe buffer it with op amp?)\n-Something weird is going on with the Clock Play/pause button - troubleshoot it. Does it need all the pins connected? Is the trace bad? Is it something with the LED output? etc."
+  (text "Change Log:\n1) [DONE] fix the button wiring\n2) rewire the outputs to be L/R mirrors, not L then R\n3) Add standoff holes with space around edges to mount it in a box if needed\n4) [DONE] Rename clock start-stop to clock play-pause\n5) [DONE] Swap \"trigger\" button with arcade button in schematic/PCB\n6) Add LEDs to the inputs to show patched signal values\n7) For the patch out jacks, make it so the output/input doesn't need a pullup resistor?\n8) Rev 3: Make input jacks able to handle Euro level inputs - Use op amps?\n9) [DONE] MCLK from Audio board is supposed to go to pin 23 not 33. Currently LFO ammount is at 23, need to find a new home for it.\n10) Look into a MUX for analog pins, like this one: CD74HC4051-EP Analog Multiplexer and Demultiplexer \n11) [DONE] Reorganize the parts on the PCB to match relative positions of new layout design\n12) [DONE] Add Mult jacks\n13) LFO Amount pot needs an analog pin on the Teensy\n14) [DONE] Clock out changed to seqIN on pin 9\n15) [DONE] Swapped out onboard audio and LCD screen for the headers that connect to modules with them"
     (at 105.41 346.71 0)
     (effects (font (size 2 2)) (justify left bottom))
     (uuid a1c455ad-8193-4d74-ae15-b6bedf960e07)
@@ -4920,7 +4915,7 @@
     (property "Value" "Adafruit 3488" (at 284.48 21.59 0)
       (effects (font (size 1.27 1.27)))
     )
-    (property "Footprint" "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Horizontal" (at 284.48 21.59 0)
+    (property "Footprint" "Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Vertical" (at 284.48 21.59 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (property "Datasheet" "~" (at 284.48 21.59 0)

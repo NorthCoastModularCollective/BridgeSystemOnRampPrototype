@@ -1,0 +1,4 @@
+(fp_lib_table
+  (version 7)
+  (lib (name "Euro Power CV Shield")(type "KiCad")(uri "$(KIPRJMOD)/Euro Power CV Shield.pretty")(options "")(descr ""))
+)
